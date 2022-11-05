@@ -10,6 +10,7 @@ export const types = {
 
     // ! Acciones para los productos
     getInformationUser: '[user] get information User',
+    getInformationUserFailed: '[user] get information User failed',
 
     // ! Acciones buscar un producto por el ID
     searchProductById: '[products] search product by id',

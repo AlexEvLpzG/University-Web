@@ -20,7 +20,7 @@ export const AuthState = ( props ) => {
         switch( typeRole ) {
             case '1': return '/auth/login/admin';
             case '2': return '/auth/login/student';
-            case '3': return '/auth/login/admin';
+            case '3': return '/auth/login/professor';
             default: return null;
         }
     }
