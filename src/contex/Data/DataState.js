@@ -46,12 +46,19 @@ export const DataState = ( props ) => {
         }
     }
 
+    const clean = () => {
+        dispatch({
+            type: types.logout
+        });
+    }
+
     return (
         <DataContext.Provider
             value={{
                 userFound: state.userFound,
                 message: state.message,
-                getInformationById
+                getInformationById,
+                clean
             }}
         >
             { props.children }

@@ -1,10 +1,19 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../contex/Auth/AuthCotext';
+import { DataContext } from '../../contex/Data/DataContext';
 
 export const ToolBar = () => {
     const authContext = useContext( AuthContext );
     const { logout, user } = authContext;
+
+    const dataContext = useContext( DataContext );
+    const { clean } = dataContext;
+
+    const exit = () => {
+        logout();
+        clean();
+    }
 
     return (
         <header>
@@ -54,7 +63,7 @@ export const ToolBar = () => {
                     <NavLink
                         className='btn btn-outline-success button__log-out m-lg-3'
                         to='/login'
-                        onClick={ logout }
+                        onClick={ exit }
                     >
                         <a>Cerrar Sesión</a>
                     </NavLink>

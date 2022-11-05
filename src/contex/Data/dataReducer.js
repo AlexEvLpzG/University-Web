@@ -8,6 +8,11 @@ export const dataReducer = ( state, action ) => {
                 userFound: action.payload,
                 message: action.payload.message,
             };
+        case types.logout:
+            return {
+                userFound: {},
+                message: ""
+            }
         default:
             return state;
     }

@@ -12,14 +12,14 @@ export const StudentInformation = ({ user }) => {
     return (
         <div className="container py-4">
             <div className="card bg-light">
-                <div className="card-header">Detalle Alumno: { userFound.nombre + " " + userFound.ape_pat + " " + userFound.ape_mat }</div>
+                <div className="card-header">Detalle del Alumno: { userFound.nombre + " " + userFound.ape_pat + " " + userFound.ape_mat }</div>
 
                 <div className="card-body">
                     <ul className="list-group">
                         <li className="list-group-item active text-center"> Información del Alumno </li>
                         <li className="list-group-item">Nombre Completo: { userFound.nombre + " " + userFound.ape_pat + " " + userFound.ape_mat }</li>
                         <li className="list-group-item">Matricula: { userFound.id }</li>
-                        <li className="list-group-item">Email: { userFound.email }</li>
+                        <li className="list-group-item">Correo Institucional: { userFound.email }</li>
                         <li className="list-group-item">CURP: { userFound.curp }</li>
                         <li className="list-group-item">Sexo: { userFound.genero == 1 ? 'Hombre' : 'Mujer' }</li>
                         <li className="list-group-item">Estado Civil: { userFound.est_civil }</li>
@@ -36,10 +36,6 @@ export const StudentInformation = ({ user }) => {
                         <li className="list-group-item">Facultad: { userFound.nombre_dependencia }</li>
                         <li className="list-group-item">Carrera: { userFound.nombre_carrera }</li>
                     </ul>
-
-                    <div className="alert alert-info my-4">
-                        text.cliente.detalle.no.facturas + ' ' + cliente.nombre + ' ' + cliente.apellido
-                    </div>
                 </div>
             </div>
         </div>
