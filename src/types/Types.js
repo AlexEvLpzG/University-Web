@@ -8,30 +8,8 @@ export const types = {
     showAlert: '[alert] show alert',
     removeAlert: '[alert] remove alert',
 
-    // ! Acciones para el menu
-    currentPage: '[auth] current page',
-    menuIsActive: '[auth] menu is active',
-
     // ! Acciones para los productos
-    addProduct: '[product] add product',
-    addProductFailed: '[product] add product failed',
-
-    getProducts: '[products] get products',
-    getProductsFailed: '[products] get products failed',
-
-    deleteProduct: '[products] delete product',
-    deleteProductFailed: '[products] delete product failed',
-
-    activeModeEdit: '[products] active mode edit',
-    desactiveModeEdit: '[products] desactive mode edit',
-
-    updateProduct: '[products] update product',
-    updateProductFailed: '[products] update product failed',
-
-    searchProductActive: '[products] search product active',
-    searchProductDesactive: '[products] search product desactive',
-
-    removeMessages: '[messages] remove messages',
+    getInformationUser: '[user] get information User',
 
     // ! Acciones buscar un producto por el ID
     searchProductById: '[products] search product by id',
