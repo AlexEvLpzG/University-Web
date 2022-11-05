@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { Login } from '../components/auth/Login';
-// import { AuthContext } from '../Context/Auth/AuthContext';
+import { AuthContext } from '../contex/Auth/AuthCotext';
 import { DashboardRouters } from './DashboardRouters';
 
 import { PrivateRoute } from './PrivateRouter';
@@ -12,18 +12,18 @@ export const AppRouter = () => {
     const [ checking, setChecking ] = useState(true);
     const [ isLoggedIn, setIsLoggedIn ] = useState(false);
 
-    // const authContext = useContext( AuthContext );
-    // const { isAuthenticated } = authContext;
+    const authContext = useContext( AuthContext );
+    const { isAuthenticated } = authContext;
 
     useEffect(() => {
-        if( true ) {
+        if( isAuthenticated ) {
             setIsLoggedIn( true );
         } else {
             setIsLoggedIn( false );
         }
 
         setChecking( false );
-    }, [ setChecking, setIsLoggedIn])
+    }, [ isAuthenticated, setChecking, setIsLoggedIn])
 
     if( checking ) {
         return (
