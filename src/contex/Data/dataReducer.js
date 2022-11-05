@@ -11,13 +11,18 @@ export const dataReducer = ( state, action ) => {
         case types.getKardexById:
             return {
                 ...state,
-                kardexFound: [...action.payload.kardex],
+                kardexFound: action.payload.kardex,
                 studentSearch: action.payload.studentFound
             };
         case types.getAllProdessor:
             return {
                 ...state,
                 professorList: action.payload,
+            }
+        case types.getAllStudent:
+            return {
+                ...state,
+                studentList: action.payload,
             }
         case types.logout:
             return {

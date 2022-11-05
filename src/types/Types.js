@@ -14,8 +14,8 @@ export const types = {
     getAllProdessor: '[professor] getAllProdessor',
     getAllProdessorFailed: '[products] getAllProdessor failed',
 
-    getAllStudent: '[professor] getAllStudent',
-    getAllStudentFailed: '[products] getAllStudent failed',
+    getAllStudent: '[student] getAllStudent',
+    getAllStudentFailed: '[student] getAllStudent failed',
 
     // ! Acciones para el modal
     uiOpenModal: '[ui] Open modal',

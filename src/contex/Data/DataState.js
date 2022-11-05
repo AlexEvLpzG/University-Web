@@ -12,6 +12,7 @@ export const DataState = ( props ) => {
         kardexFound: [],
         studentSearch: {},
         professorList: [],
+        studentList: [],
         message: null,
     }
 
@@ -106,6 +107,29 @@ export const DataState = ( props ) => {
         }
     }
 
+    const getAllStudent = async( token ) => {
+        try {
+            const response = await clientAxios.get( '/student', {
+                headers: {
+                    'Authorization': token
+                }
+            });
+            dispatch({
+                type: types.getAllStudent,
+                payload: response.data.studentList
+            });
+        } catch (error) {
+            const alert = {
+                msg: error.response.data.message,
+                type: 'alert-error'
+            }
+            dispatch({
+                type: types.studentListFailed,
+                payload: alert
+            });
+        }
+    }
+
     return (
         <DataContext.Provider
             value={{
@@ -114,10 +138,12 @@ export const DataState = ( props ) => {
                 kardexFound: state.kardexFound,
                 studentSearch: state.studentSearch,
                 professorList: state.professorList,
+                studentList: state.studentList,
                 getInformationById,
                 clean,
                 getInformationKardexById,
-                getAllProdessor
+                getAllProdessor,
+                getAllStudent
             }}
         >
             { props.children }
