@@ -14,6 +14,11 @@ export const dataReducer = ( state, action ) => {
                 kardexFound: [...action.payload.kardex],
                 studentSearch: action.payload.studentFound
             };
+        case types.getAllProdessor:
+            return {
+                ...state,
+                professorList: action.payload,
+            }
         case types.logout:
             return {
                 userFound: {},

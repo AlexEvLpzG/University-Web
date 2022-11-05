@@ -40,11 +40,11 @@ export const ToolBar = () => {
                             &&
                             <>
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="/">Profesores</a>
+                                    <Link className='nav-link' to='/profesores'>Profesores</Link>
                                 </li>
 
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="/">Alumnos</a>
+                                    <Link className='nav-link' to='/alumnos'>Alumnos</Link>
                                 </li>
                             </>
                         }

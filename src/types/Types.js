@@ -8,13 +8,14 @@ export const types = {
     showAlert: '[alert] show alert',
     removeAlert: '[alert] remove alert',
 
-    // ! Acciones para los productos
     getInformationUser: '[user] get information User',
     getInformationUserFailed: '[user] get information User failed',
 
-    // ! Acciones buscar un producto por el ID
-    getKardexById: '[products] get KardexBy Id',
-    getKardexByIdFailed: '[products] get KardexBy Id failed',
+    getAllProdessor: '[professor] getAllProdessor',
+    getAllProdessorFailed: '[products] getAllProdessor failed',
+
+    getAllStudent: '[professor] getAllStudent',
+    getAllStudentFailed: '[products] getAllStudent failed',
 
     // ! Acciones para el modal
     uiOpenModal: '[ui] Open modal',
