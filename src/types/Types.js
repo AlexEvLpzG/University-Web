@@ -13,8 +13,8 @@ export const types = {
     getInformationUserFailed: '[user] get information User failed',
 
     // ! Acciones buscar un producto por el ID
-    searchProductById: '[products] search product by id',
-    searchProductByIdFailed: '[products] search product by id failed',
+    getKardexById: '[products] get KardexBy Id',
+    getKardexByIdFailed: '[products] get KardexBy Id failed',
 
     // ! Acciones para el modal
     uiOpenModal: '[ui] Open modal',

@@ -9,6 +9,8 @@ import { clientAxios } from '../../config/Axios';
 export const DataState = ( props ) => {
     const initialState = {
         userFound: {},
+        kardexFound: [],
+        studentSearch: {},
         message: null,
     }
 
@@ -52,13 +54,44 @@ export const DataState = ( props ) => {
         });
     }
 
+    const getInformationKardexById = async( userData ) => {
+        try {
+            const response = await clientAxios.get(  `/kardex/${ userData.id }`, {
+                headers: {
+                    'Authorization': userData.token
+                }
+            });
+            const responseAlumno = await clientAxios.get(  `/student/${ userData.id }`, {
+                headers: {
+                    'Authorization': userData.token
+                }
+            });
+            dispatch({
+                type: types.getKardexById,
+                payload: { kardex: response.data.kardex, studentFound: responseAlumno.data.UserData }
+            });
+        } catch (error) {
+            const alert = {
+                msg: error.response.data.message,
+                type: 'alert-error'
+            }
+            dispatch({
+                type: types.getInformationKardexByIdFailed,
+                payload: alert
+            });
+        }
+    }
+
     return (
         <DataContext.Provider
             value={{
                 userFound: state.userFound,
                 message: state.message,
+                kardexFound: state.kardexFound,
+                studentSearch: state.studentSearch,
                 getInformationById,
-                clean
+                clean,
+                getInformationKardexById
             }}
         >
             { props.children }

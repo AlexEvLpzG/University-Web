@@ -7,6 +7,7 @@ export const StudentInformation = ({ user }) => {
 
     useEffect(() => {
         getInformationById({ id: user.UserData.id, typeRole: user.UserData.role.description, token: user.Token });
+        // eslint-disable-next-line
     }, [] )
 
     return (
@@ -21,7 +22,7 @@ export const StudentInformation = ({ user }) => {
                         <li className="list-group-item">Matricula: { userFound.id }</li>
                         <li className="list-group-item">Correo Institucional: { userFound.email }</li>
                         <li className="list-group-item">CURP: { userFound.curp }</li>
-                        <li className="list-group-item">Sexo: { userFound.genero == 1 ? 'Hombre' : 'Mujer' }</li>
+                        <li className="list-group-item">Sexo: { userFound.genero === 1 ? 'Hombre' : 'Mujer' }</li>
                         <li className="list-group-item">Estado Civil: { userFound.est_civil }</li>
                         <li className="list-group-item">Celular: { userFound.celular }</li>
                         <li className="list-group-item">Teléfono: { userFound.telefono }</li>

@@ -8,9 +8,16 @@ export const dataReducer = ( state, action ) => {
                 userFound: action.payload,
                 message: action.payload.message,
             };
+        case types.getKardexById:
+            return {
+                ...state,
+                kardexFound: [...action.payload.kardex],
+                studentSearch: action.payload.studentFound
+            };
         case types.logout:
             return {
                 userFound: {},
+                kardexFound: {},
                 message: ""
             }
         default:

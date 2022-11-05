@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../contex/Auth/AuthCotext';
 import { DataContext } from '../../contex/Data/DataContext';
 
@@ -54,7 +54,7 @@ export const ToolBar = () => {
                             &&
                             <>
                                 <li className="nav-item active">
-                                    <a className="nav-link" href="/">Kardex</a>
+                                    <Link className='nav-link' to={ `kardex/${ user.UserData.id }` }>Kardex</Link>
                                 </li>
                             </>
                         }
@@ -65,7 +65,7 @@ export const ToolBar = () => {
                         to='/login'
                         onClick={ exit }
                     >
-                        <a>Cerrar Sesión</a>
+                        <i>Cerrar Sesión</i>
                     </NavLink>
                 </div>
             </nav>

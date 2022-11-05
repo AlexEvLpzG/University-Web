@@ -13,3 +13,51 @@
         height: 100%;
     }
 }
+
+.information__user {
+    display: flex;
+    justify-content: center;
+}
+
+.lds-ring {
+    display: flex;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ring div {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: auto;
+    border: 8px solid rgb(76, 70, 70);
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: rgb(110, 102, 102) transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+.container.py-4 {
+    display: flex;
+    justify-content: center;
+}
+
+.card.bg-light {
+    width: 100%;
+}
