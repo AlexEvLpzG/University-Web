@@ -130,6 +130,48 @@ export const DataState = ( props ) => {
         }
     }
 
+    const addNewStudent = async({ student, token }) => {
+        try {
+            const response = await clientAxios.post( '/student', {
+                matricula : student.matricula,
+                nombre : student.nombre,
+                ape_pat : student.ape_pat,
+                ape_mat : student.ape_mat,
+                email : student.email,
+                password : student.password,
+                estado : student.estado,
+                municipio : student.municipio,
+                colonia : student.colonia,
+                direccion : student.direccion,
+                telefono : student.telefono,
+                celular : student.celular,
+                cve_dependencia : student.cve_dependencia,
+                cve_carrera : student.cve_carrera,
+                curp : student.curp,
+                genero : student.genero,
+                est_civil : student.est_civil,
+                fec_nacimiento : student.fec_nacimiento
+            }, {
+                headers: {
+                    'Authorization': token
+                }
+            });
+            dispatch({
+                type: types.addNewStudent
+            });
+        } catch (error) {
+            console.log( error.response )
+            const alert = {
+                msg: error.response.data.message,
+                type: 'alert-error'
+            }
+            dispatch({
+                type: types.studentListFailed,
+                payload: alert
+            });
+        }
+    }
+
     return (
         <DataContext.Provider
             value={{
@@ -143,7 +185,8 @@ export const DataState = ( props ) => {
                 clean,
                 getInformationKardexById,
                 getAllProdessor,
-                getAllStudent
+                getAllStudent,
+                addNewStudent
             }}
         >
             { props.children }

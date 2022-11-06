@@ -61,7 +61,7 @@ export const ToolBar = () => {
                     </ul>
 
                     <NavLink
-                        className='btn btn-outline-success button__log-out m-lg-3'
+                        className='btn btn-outline-danger button__log-out m-lg-3'
                         to='/login'
                         onClick={ exit }
                     >

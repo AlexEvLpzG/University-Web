@@ -40,6 +40,8 @@ export const ListStudentInformation = () => {
                             studentList.length === 0 && <div className='alert alert-info my-4 text-center'>No se pudo encontrar profesores Registrados</div>
                         }
 
+                        <Link className='btn btn-success btn-xs' to='/nuevo-alumno'>Agregar Nuevo Alumno</Link>
+                        
                         {
                             studentList.length != 0
                             &&
@@ -55,7 +57,6 @@ export const ListStudentInformation = () => {
                                         <th className='text-center'>Carrera</th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
                                     {
                                         studentList.map(( element, i ) => (

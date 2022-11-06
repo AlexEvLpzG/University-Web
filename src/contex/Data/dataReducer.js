@@ -24,6 +24,11 @@ export const dataReducer = ( state, action ) => {
                 ...state,
                 studentList: action.payload,
             }
+        case types.addNewStudent:
+            return {
+                ...state,
+                message: 'Alumno agregado correctamente'
+            }
         case types.logout:
             return {
                 userFound: {},

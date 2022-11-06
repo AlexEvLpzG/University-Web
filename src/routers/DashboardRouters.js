@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { HomeScreen } from '../components/home/HomeScreen';
+import { FormNewStudent } from '../components/InformationUser/FormNewStudent';
 import { ListProfesorInformation } from '../components/InformationUser/ListProfesorInformation';
 import { ListStudentInformation } from '../components/InformationUser/ListStudentInformation';
 import { StudentKardex } from '../components/InformationUser/StudentKardex';
@@ -17,6 +18,7 @@ export const DashboardRouters = () => {
                     <Route path='/kardex/:id' element={ <StudentKardex /> }></Route>
                     <Route path='/profesores' element={ <ListProfesorInformation /> }></Route>
                     <Route path='/alumnos' element={ <ListStudentInformation /> }></Route>
+                    <Route path='/nuevo-alumno' element={ <FormNewStudent /> }></Route>
 
                     <Route path = '/' element={ <HomeScreen /> }/>
                 </Routes>
