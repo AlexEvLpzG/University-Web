@@ -7,7 +7,7 @@ export const Login = () => {
     const { email, password, typeRole } = formValues;
 
     const authContext = useContext( AuthContext );
-    const { login } = authContext;
+    const { login, listMessageError } = authContext;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -56,28 +56,29 @@ export const Login = () => {
 
                             <div form-outline mb-3>
                                 <select name="typeRole" onChange={ handleInputChange } value={ typeRole } className="form-control form-control-lg mb-4" aria-label="Default select example">
-                                    <option selected>Type Role</option>
+                                    <option defaultValue={ 0 }>Type Role</option>
                                     <option value="1">Administrador</option>
                                     <option value="2">Alumno</option>
                                     <option value="3">Profesor</option>
                                 </select>
                             </div>
 
-
-                            <div className="d-flex justify-content-between align-items-center">
-                                <div className="form-check mb-0">
-                                <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                                <label className="form-check-label">
-                                    Remember me
-                                </label>
+                            {
+                                ( listMessageError.length > 0 )
+                                    &&
+                                <div className="alert alert-danger" role="alert">
+                                    <ul>
+                                        {
+                                            listMessageError.map( error => (
+                                                <li>{ error.msg }</li>
+                                            ))
+                                        }
+                                    </ul>
                                 </div>
-                                <a href="#!" className="text-body">Forgot password?</a>
-                            </div>
+                            }
 
                             <div className="text-center text-lg-start mt-4 pt-2">
                                 <button type="submit" className="btn btn-primary btn-lg" style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}>Login</button>
-                                <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                                    className="link-danger">Register</a></p>
                             </div>
                         </form>
                     </div>

@@ -15,12 +15,10 @@ export const ListStudentInformation = () => {
 
     useEffect(() => {
         getAllStudent( user.Token );
-    }, [])
-
-    useEffect(() => {
         setTimeout(() => {
             setLoadData( true );
         }, 300);
+        // eslint-disable-next-line
     }, [])
 
     return (
@@ -41,10 +39,10 @@ export const ListStudentInformation = () => {
                         }
 
                         <Link className='btn btn-success btn-xs' to='/nuevo-alumno'>Agregar Nuevo Alumno</Link>
-                        
+
                         {
-                            studentList.length != 0
-                            &&
+                            studentList.length !== 0
+                                &&
                             <table className='table table-bordered table-striped my-4'>
                                 <thead className='thead-dark table-dark'>
                                     <tr>

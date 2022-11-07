@@ -12,6 +12,8 @@ export const AuthState = ( props ) => {
         user: localStorage.getItem( 'user' ) ? JSON.parse( localStorage.getItem( 'user' ) ) : null,
         message: null,
         loading: true,
+        typeMessage: '',
+        listMessageError: []
     }
 
     const [ state, dispatch ] = useReducer( authReducer, initialState );
@@ -25,6 +27,12 @@ export const AuthState = ( props ) => {
         }
     }
 
+    const deleteMessage = () => {
+        setTimeout(() => {
+            dispatch({ type: types.removeAlert });
+        } , 3000);
+    }
+
     // * Cuando el usuario inicia sesión
     const login = async( userData ) => {
         try {
@@ -35,15 +43,12 @@ export const AuthState = ( props ) => {
                 payload: response.data
             });
         } catch (error) {
-            const alert = {
-                msg: error.response.data.message,
-                type: 'alert-error'
-            }
             dispatch({
                 type: types.loginFailed,
-                payload: alert
+                payload: error.response.data.errors.errors
             });
         }
+        deleteMessage();
     }
 
     const logout = () => {
@@ -59,8 +64,10 @@ export const AuthState = ( props ) => {
                 user: state.user,
                 message: state.message,
                 loading: state.loading,
+                listMessageError: state.listMessageError,
                 login,
-                logout
+                logout,
+                deleteMessage
             }}
         >
             { props.children }

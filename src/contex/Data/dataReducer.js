@@ -43,6 +43,13 @@ export const dataReducer = ( state, action ) => {
                 kardexFound: {},
                 message: ""
             }
+        case types.removeAlert:
+            return {
+                ...state,
+                message: '',
+                typeMessage: '',
+                listMessageError: []
+            }
         default:
             return state;
     }

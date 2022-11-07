@@ -15,13 +15,10 @@ export const StudentKardex = () => {
 
     useEffect(() => {
         getInformationKardexById({ id, token: user.Token });
-        // eslint-disable-next-line
-    }, [])
-
-    useEffect(() => {
         setTimeout(() => {
             setLoadData( true );
         }, 300);
+        // eslint-disable-next-line
     }, [])
 
     if( user.UserData.role.description === 'ROLE_ALUMNO' && user.UserData.id !== id  ) {
@@ -70,9 +67,9 @@ export const StudentKardex = () => {
 
                                     <tbody>
                                         {
-                                            kardexFound.map( element => (
+                                            kardexFound.map(( element, i ) => (
                                                 <tr key={ element.id }>
-                                                    <td>{ element.id }</td>
+                                                    <td>{ i + 1 }</td>
                                                     <td>{ element.materia }</td>
                                                     <td>{ element.semestre }</td>
                                                     <td>{ element.calificación }</td>

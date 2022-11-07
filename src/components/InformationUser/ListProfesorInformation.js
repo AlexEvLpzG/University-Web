@@ -14,12 +14,10 @@ export const ListProfesorInformation = () => {
 
     useEffect(() => {
         getAllProdessor( user.Token );
-    }, [])
-
-    useEffect(() => {
         setTimeout(() => {
             setLoadData( true );
         }, 300);
+        // eslint-disable-next-line
     }, [])
 
     professorList.sort((a,b) =>{ return a.id - b.id })
@@ -42,8 +40,8 @@ export const ListProfesorInformation = () => {
                         }
 
                         {
-                            professorList.length != 0
-                            &&
+                            professorList.length !== 0
+                                &&
                             <table className='table table-bordered table-striped my-4'>
                                 <thead className='thead-dark table-dark'>
                                     <tr>

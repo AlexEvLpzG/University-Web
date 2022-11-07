@@ -29,6 +29,12 @@ export const DataState = ( props ) => {
         }
     }
 
+    const deleteMessage = () => {
+        setTimeout(() => {
+            dispatch({ type: types.removeAlert });
+        } , 3000);
+    }
+
     const getInformationById = async( userData ) => {
         try {
             const response = await clientAxios.get( getUri( userData.typeRole ) + `/${ userData.id }`, {
@@ -134,7 +140,7 @@ export const DataState = ( props ) => {
 
     const addNewStudent = async({ student, token }) => {
         try {
-            const response = await clientAxios.post( '/student', {
+            await clientAxios.post( '/student', {
                 matricula : student.matricula,
                 nombre : student.nombre,
                 ape_pat : student.ape_pat,
@@ -162,12 +168,12 @@ export const DataState = ( props ) => {
                 type: types.addNewStudent
             });
         } catch (error) {
-            console.log( error.response.data.errors.errors )
             dispatch({
                 type: types.addNewStudentFailed,
                 payload: error.response.data.errors.errors
             });
         }
+        deleteMessage();
     }
 
     return (
@@ -186,7 +192,8 @@ export const DataState = ( props ) => {
                 getInformationKardexById,
                 getAllProdessor,
                 getAllStudent,
-                addNewStudent
+                addNewStudent,
+                deleteMessage
             }}
         >
             { props.children }

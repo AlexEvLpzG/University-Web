@@ -16,14 +16,22 @@ export const authReducer = ( state, action ) => {
                 isAuthenticated: false,
                 user: '',
                 message: action.payload,
+                listMessageError: []
             };
         case types.loginFailed:
             localStorage.removeItem( 'user' );
             return {
                 ...state,
-                isAuthenticated: false,
+                typeMessage: 'alert-bad',
                 user: '',
-                message: action.payload
+                listMessageError: action.payload
+            }
+        case types.removeAlert:
+            return {
+                ...state,
+                message: '',
+                typeMessage: '',
+                listMessageError: []
             }
         default:
             return state;

@@ -25,14 +25,14 @@ export const ToolBar = () => {
                 <div className="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active ">
-                            <a className="nav-link text-white" href="/" style={{ PointerEvent: 'none', cursor: 'default' }}>
+                            <div className="nav-link text-white" href="/" style={{ PointerEvent: 'none', cursor: 'default' }}>
                                 Usuario: <span className="user__name text-info">( { user.UserData.nombre } )
-                            </span></a>
+                            </span></div>
                         </li>
                         <li className="nav-item active ">
-                            <a className="nav-link text-white" href="/" style={{ PointerEvent: 'none', cursor: 'default' }}>
+                            <div className="nav-link text-white" href="/" style={{ PointerEvent: 'none', cursor: 'default' }}>
                                 Role: <span className="text-info">( { user.UserData.role.description.split('_')[1] } )
-                            </span></a>
+                            </span></div>
                         </li>
 
                         {
