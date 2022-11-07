@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../contex/Auth/AuthCotext';
 import { DataContext } from '../../contex/Data/DataContext';
 
@@ -13,9 +13,9 @@ export const StudentKardex = () => {
 
     const[ LoadData, setLoadData ] = useState(false);
 
-
     useEffect(() => {
         getInformationKardexById({ id, token: user.Token });
+        // eslint-disable-next-line
     }, [])
 
     useEffect(() => {
@@ -23,6 +23,10 @@ export const StudentKardex = () => {
             setLoadData( true );
         }, 300);
     }, [])
+
+    if( user.UserData.role.description === 'ROLE_ALUMNO' && user.UserData.id !== id  ) {
+        return <Navigate to='/' />
+    }
 
     return (
         <div className='container py-4'>
@@ -52,7 +56,7 @@ export const StudentKardex = () => {
                             }
 
                             {
-                                kardexFound.length != 0
+                                kardexFound.length !== 0
                                 &&
                                 <table className='table table-bordered table-striped my-4'>
                                     <thead className='thead-dark table-dark'>

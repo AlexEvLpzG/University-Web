@@ -13,7 +13,9 @@ export const DataState = ( props ) => {
         studentSearch: {},
         professorList: [],
         studentList: [],
-        message: null,
+        typeMessage: '',
+        listMessageError: [],
+        message: null
     }
 
     const [ state, dispatch ] = useReducer( dataReducer, initialState );
@@ -160,14 +162,10 @@ export const DataState = ( props ) => {
                 type: types.addNewStudent
             });
         } catch (error) {
-            console.log( error.response )
-            const alert = {
-                msg: error.response.data.message,
-                type: 'alert-error'
-            }
+            console.log( error.response.data.errors.errors )
             dispatch({
-                type: types.studentListFailed,
-                payload: alert
+                type: types.addNewStudentFailed,
+                payload: error.response.data.errors.errors
             });
         }
     }
@@ -181,6 +179,8 @@ export const DataState = ( props ) => {
                 studentSearch: state.studentSearch,
                 professorList: state.professorList,
                 studentList: state.studentList,
+                typeMessage: state.typeMessage,
+                listMessageError: state.listMessageError,
                 getInformationById,
                 clean,
                 getInformationKardexById,

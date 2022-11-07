@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../../contex/Auth/AuthCotext';
 import { DataContext } from '../../contex/Data/DataContext';
 import { useForm } from '../hooks/useForm';
 
 export const FormNewStudent = () => {
     const dataContext = useContext( DataContext );
-    const { addNewStudent } = dataContext;
+    const { addNewStudent, listMessageError, typeMessage, message } = dataContext;
 
     const authContext = useContext( AuthContext );
     const { user } = authContext;
@@ -236,6 +237,25 @@ export const FormNewStudent = () => {
                         onChange={ handleInputChange }
                     />
                 </div>
+                {
+                    typeMessage === 'alert-ok' &&
+                    <div class="alert alert-success " role="alert">
+                        { message }
+                    </div>
+                }
+                {
+                    listMessageError.length > 0
+                        &&
+                    <div class="alert alert-danger" role="alert">
+                        <ul>
+                            {
+                                listMessageError.map( error => (
+                                    <li>{ error.msg }</li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                }
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>

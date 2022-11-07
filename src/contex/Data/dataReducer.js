@@ -27,7 +27,15 @@ export const dataReducer = ( state, action ) => {
         case types.addNewStudent:
             return {
                 ...state,
-                message: 'Alumno agregado correctamente'
+                message: 'Alumno agregado correctamente',
+                typeMessage: 'alert-ok',
+                listMessageError: []
+            }
+        case types.addNewStudentFailed:
+            return {
+                ...state,
+                typeMessage: 'alert-bad',
+                listMessageError: action.payload
             }
         case types.logout:
             return {
